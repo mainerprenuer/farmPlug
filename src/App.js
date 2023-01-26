@@ -1,13 +1,13 @@
 import React from 'react'
+import { Header } from "./components";
 
 const App = () => {
   return (
-    <div>App</div>
+    <div className="w-screen h-auto flex flex-col">
+      <Header />
+    </div>
   )
 }
 
-export default App
+export default App;
 
-ReactDOM.render (
-    <App />, document.getElementById ("root")
-);
