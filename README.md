@@ -38,6 +38,19 @@ The system is expected to have an Artificial Intelligence brain that takes in us
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
