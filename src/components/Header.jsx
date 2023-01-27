@@ -3,7 +3,8 @@ import {BsCart4} from 'react-icons/bs';
 import { motion } from 'framer-motion';
 
 import Logo from './img/logo-.jpg';
-import Avatar from './img/avatar.png';
+import Avatar from './img/avatar.png'
+
 import { Link } from 'react-router-dom';
 
 const Header = () => {
