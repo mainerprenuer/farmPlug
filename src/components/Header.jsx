@@ -50,7 +50,7 @@ const Header = () => {
     <header className='fixed z-50 w-screen p-6 px-4 md:p-6 md:px-16'>
 
         {/* DESKTOP & TABLET */}
-        <div className='hidden md:flex w-full h-full bg-white rounded-full items-center justify-between'>
+        <div className='hidden md:flex w-full h-full rounded-full items-center justify-between'>
         <Link to={"/"} className='flex items-center gap-2'>
             <img src={Logo} className="w-10 object-cover rounded-full" alt="logo" />
             <p className="text-headingColor text-xl font-bold"> Farm Plug</p>
@@ -117,7 +117,7 @@ const Header = () => {
              
 
     {/* MOBILE */}
-    <div className='flex items-center justify-between md:hidden w-full h-full bg-white rounded-full'>
+    <div className='flex items-center justify-between md:hidden w-full h-full rounded-full'>
 
         <div className='relative flex items-center justify-center'>
         <BsCart4 className='text-textColor text-2x1 cursor-pointer' />

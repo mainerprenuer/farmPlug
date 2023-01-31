@@ -11,7 +11,7 @@ const HomeContainer = () => {
           <p className='text-base text-orange-600 font-semibold'>
             Bike Delivery
           </p>
-          <div className='w-8 h-8 rounded-full overflow-hidden drop-shadow-x1 shadow-lg'>
+          <div className='w-8 h-8 rounded-full overflow-hidden drop-shadow-x1 shadow-lg bg-white'>
             <img
               src={Delivery}
               className='w-full h-full object-contain'
