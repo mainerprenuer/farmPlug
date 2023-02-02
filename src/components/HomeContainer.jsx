@@ -1,7 +1,7 @@
 import React from 'react'
 import Delivery from '../img/delivery.png'
 import HeroBg from '../img/heroBg.png'
-import F1 from '../img/f1.png'
+import { heroData } from '../utils/data'
 
 
 const HomeContainer = () => {
@@ -39,15 +39,17 @@ const HomeContainer = () => {
             <img src={HeroBg} className="ml-auto h-420 w-full lg:w-auto lg:h-650" alt='hero-Bg' />
 
             <div className='w-full h-full absolute top-0 left-0 flex items-center justify-center px-32 py-4'>
-                <div className='w-190 p-4 bg-cardOverlay backdrop-blur-md rounded-md flex flex-col items-center justify-center'>
-                    <img src={F1} className='w-40 -mt-20' alt='f1' />
-                    <p className='text-base font-semibold text-textColor'>Fresh Strawberry</p>
+                {heroData && heroData.map(n =>(
+                    <div key={n.id} className='w-190 p-4 bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-center'>
+                    <img src={n.imageSrc} className='w-40 -mt-20' alt='f1' />
+                    <p className='text-xl font-semibold text-textColor mt-4'>{n.name}</p>
 
-                    <p className='text-sm text-lighttextGray font-semibold my-4'>All sweet berries</p>
+                    <p className='text-md text-lighttextGray font-semibold my-3'>{n.desc}</p>
 
                     <p className='text-sm font-semibold text-headingColor'>
-                    <span className='text-xs text-red-600'>₦</span> 1,500</p>
+                    <span className='text-xs text-red-600'>₦</span>{n.price}</p>
                 </div>
+                ))}
             </div>
       </div>
     </section>
