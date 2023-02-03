@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {BsCart4, BsAdd, BsLogout} from 'react-icons/bs';
+import { BsCart4 } from 'react-icons/bs';
 import { MdAdd, MdLogout}  from 'react-icons/md';
 import { motion } from 'framer-motion';
 
