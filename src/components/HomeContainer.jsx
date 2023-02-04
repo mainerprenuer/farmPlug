@@ -6,7 +6,7 @@ import { heroData } from "../utils/data";
 const HomeContainer = () => {
   return (
     <section
-      className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full "
+      className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full h-screen"
       id="home"
     >
       <div className="py-2 flex-1 flex flex-col items-start justify-center gap-6">
@@ -72,7 +72,7 @@ const HomeContainer = () => {
                 </p>
 
                 <p className="text-sm font-semibold text-headingColor">
-                  <span className="text-xs text-red-600">$</span> {n.price}
+                  <span className="text-xs text-red-600">₦</span> {n.price}
                 </p>
               </div>
             ))}
