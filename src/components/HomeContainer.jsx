@@ -1,12 +1,9 @@
 import React from 'react'
 import Delivery from '../img/delivery.png'
 import HeroBg from '../img/heroBg.png'
-import F1 from "../img/f1.png"
 
-// import { heroData } from '../utils/data'
+import { heroData } from '../utils/data'
 
-const heroData = [
-  {id : 1, name : 'Fresh Strawberries', desc : 'All sweet berries', price : '1,500', imageSrc : 'f1'},]
 
 const HomeContainer = () => {
   return (
