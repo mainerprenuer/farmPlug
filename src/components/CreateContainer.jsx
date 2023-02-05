@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 import { BiFoodMenu } from 'react-icons/bi';
 import { categories } from '../utils/data';
-import Loader from './Loader';
+import Loader from './Loader';;
 
 const CreateContainer = () => {
 
