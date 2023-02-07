@@ -7,7 +7,8 @@ import { RiDeleteBin4Fill } from 'react-icons/ri';
 import { GiWeight, GiTakeMyMoney } from 'react-icons/gi';
 
 import { categories } from '../utils/data';
-import Loader from './Loader';;
+import Loader from './Loader';
+import { uploadBytesResumable, getDownloadURL, ref } from 'firebase/storage';
 
 const CreateContainer = () => {
 
@@ -16,15 +17,40 @@ const CreateContainer = () => {
   const [price, setprice] = useState("");
   const [category, setcategory] = useState("");
   const [imgAsset, setImageAsset] = useState("");
-  const [fields, setfields] = useState(false);
-  const [alertStatus, setStatus] = useState("danger");
+  const [fields, setFields] = useState(false);
+  const [alertStatus, setAlertStatus] = useState("danger");
   const [msg, setMsg] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const uploadImage = (e) => {
-    setIsLoading(true);
+    setIsLoading(true); 
     const imageFile = e.target.files[0];
-    console.log(imageFile);
+    const storageRef = ref(storage, `images/${Date.now()}-${imageFile.name}`)
+    const uploadTask = uploadBytesResumable(storageRef, imageFile) ;
+
+    uploadTask.on('state_changed', (snapshot) => {
+      const uploadProgress = (snapshot.Transferred / snapshot.totalBytes) * 100;
+    }, (error) => {
+      console.log(error);
+      setFields(true);
+      setMsg('Error while uploading : Try Again 😣');
+      setAlertStatus('danger');
+      setTimeout(() => {
+        setFields(false);
+        setIsLoading(false);
+      }, 4000);
+   }, () => {
+      getDownloadURL(uploadTask.snapshot.ref).then(downlodURL => {
+        setImageAsset(downlodURL);
+        setIsLoading(false)
+        setFields(true);
+        setMsg('Image Uploaded Successfully 😄');
+        setAlertStatus('success')
+        setTimeout(() => {
+          setFields(false);
+        }, 4000);
+     })
+   })
   };
 
   const deleteImage = () => {};
@@ -110,7 +136,8 @@ const CreateContainer = () => {
         </div>
         <div className='flex items-center w-full'>
           <button type='button' className='ml-0 md:ml-auto w-full md:w-auto border-none outline-none bg-emerald-500 px-12 py-2 rounded-lg text-white font-semi-bold' onClick={saveDetails}>
-            Save</button>
+            Save
+          </button>
         </div>
       </div>
     </div>
