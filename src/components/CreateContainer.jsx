@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
+import { BiFoodMenu } from 'react-icons/bi';
 import { MdCloudUpload } from 'react-icons/md';
 import { RiDeleteBin4Fill } from 'react-icons/ri';
 import { GiWeight, GiTakeMyMoney, GiOpenedFoodCan } from 'react-icons/gi';
@@ -163,7 +164,7 @@ const CreateContainer = () => {
         )}
 
         <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
-          <GiOpenedFoodCan className="text-xl text-gray-700" />
+          <BiFoodMenu className="text-xl text-gray-700" />
           <input
             type="text"
             required
