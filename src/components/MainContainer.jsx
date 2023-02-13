@@ -1,5 +1,6 @@
 import React from 'react';
 import HomeContainer from './HomeContainer';
+import RowContainer from './RowContainer';
 import { motion } from 'framer-motion';
 import { TiChevronLeft, TiChevronRight } from 'react-icons/ti';
 
@@ -22,8 +23,8 @@ const MainContainer = () => {
               <TiChevronRight className='text-lg text-white' />
             </motion.div>
           </div>
-
         </div>
+        <RowContainer flag={true} />
       </section>
     </div>
   );
