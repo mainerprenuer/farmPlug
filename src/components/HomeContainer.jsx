@@ -31,8 +31,9 @@ const HomeContainer = () => {
         </p>
 
         <p className="text-base text-textColor text-center md:text-left md:w-[80%]">
-          Learning is a recursive function Learning is a recursive function Learning is a recursive function Learning is a recursive function
-          Learning is a recursive functionLearning is a recursive functionLearning is a recursive function 
+        Our app connects you with farmers and suppliers to help you order fresh, high-quality farm produce.
+        We use AI to provide personalized recommendations, optimize delivery routes, and improve overall efficiency.
+        You can easily place orders, track delivery, and get real-time support using our app. It's a convenient and user-friendly platform that ensures you get the best farm produce, delivered to your doorstep.
         </p>
 
         <button
