@@ -3,8 +3,10 @@ import HomeContainer from './HomeContainer';
 import RowContainer from './RowContainer';
 import { motion } from 'framer-motion';
 import { TiChevronLeft, TiChevronRight } from 'react-icons/ti';
+import { useStateValue} from '../context/StateProvider';
 
 const MainContainer = () => {
+  const [{farmItems}, dispatch] = useStateValue()
   return (
     <div className='w-full h-auto flex flex-col items-center justify-center'>
       <HomeContainer />
@@ -24,7 +26,7 @@ const MainContainer = () => {
             </motion.div>
           </div>
         </div>
-        <RowContainer flag={true} />
+        <RowContainer flag={true} data={farmItems?.filter((n) => n.category === 'fruits')} />
       </section>
     </div>
   );
