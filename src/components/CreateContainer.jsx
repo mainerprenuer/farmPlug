@@ -16,12 +16,11 @@ import { useStateValue } from "../context/StateProvider";
 
 
 const CreateContainer = () => {
-
   const [title, setTitle] = useState("");
   const [kilograms, setKilograms] = useState("");
   const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("");
-  const [imgAsset, setImageAsset] = useState("");
+  const [category, setCategory] = useState(null);
+  const [imgAsset, setImageAsset] = useState(null);
   const [fields, setFields] = useState(false);
   const [alertStatus, setAlertStatus] = useState("danger");
   const [msg, setMsg] = useState(null);
@@ -44,7 +43,7 @@ const CreateContainer = () => {
       (error) => {
         console.log(error);
         setFields(true);
-        setMsg("Error while uploading : Try AGain 🙇");
+        setMsg("Error while uploading : Try Again 🙇");
         setAlertStatus("danger");
         setTimeout(() => {
           setFields(false);
@@ -97,6 +96,7 @@ const CreateContainer = () => {
           id: `${Date.now()}`,
           title: title,
           imgURL: imgAsset,
+          category: category,
           kilograms: kilograms,
           qty: 1,
           price: price
@@ -114,7 +114,7 @@ const CreateContainer = () => {
     } catch (error) {
       console.log(error);
       setFields(true);
-      setMsg("Error while uploading : Try AGain 🙇");
+      setMsg("Error while uploading : Try Again 🙇");
       setAlertStatus("danger");
       setTimeout(() => {
         setFields(false);
@@ -137,7 +137,7 @@ const CreateContainer = () => {
     await getAllFarmItems().then(data => {
       dispatch({
         type : actionType.SET_FARM_ITEMS,
-        farmItems : data
+        farmItems : data,
       });
     });
   };
@@ -181,7 +181,6 @@ const CreateContainer = () => {
               Select Category
             </option>
             {categories &&
-            
               categories.map((item) => (
                 <option
                   key={item.id}
@@ -220,10 +219,11 @@ const CreateContainer = () => {
               ) : (
                 <>
                   <div className='relative h-full'>
-                      <img src={imgAsset} alt="uploadimage" className='w-full h-full object-cover' />
+                      <img src={imgAsset} alt="uploaded image" className='w-full h-full object-cover' />
                       <button type='button' className="absolute bottom-3 right-3 p-3 rounded-full bg-red-500 text-xl 
                        cursor-pointer outline-none hover:shadow-md duration-500 transition-all ease-in-out" 
-                       onClick={deleteImage}><RiDeleteBin4Fill className='text-white' />
+                       onClick={deleteImage}>
+                        <RiDeleteBin4Fill className='text-white' />
                       </button>
                     </div>
                 </>
@@ -236,12 +236,12 @@ const CreateContainer = () => {
          <div className='w-full py-2 border-b border-gray-300 flex items-center gap-2'>
             <GiWeight className='text-gray-700 text-2x1' />
             <input type='text' required value={kilograms} onChange={(e) => setKilograms(e.target.value)}
-             placeholder='kilograms' className='w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor'/>
+             placeholder='Kilograms' className='w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor'/>
           </div>
 
           <div className='w-full py-2 border-b border-gray-300 flex items-center gap-2'>
             <GiTakeMyMoney className='text-gray-700 text-2x1' />
-            <input type='text' required value={price} onChange={(e) => setPrice(e.target.value)} placeholder='price' className='w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor'/>
+            <input type='text' required value={price} onChange={(e) => setPrice(e.target.value)} placeholder='Price' className='w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor'/>
           </div>
         </div>
 

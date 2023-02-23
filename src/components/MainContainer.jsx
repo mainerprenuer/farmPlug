@@ -26,7 +26,7 @@ const MainContainer = () => {
             </motion.div>
           </div>
         </div>
-        <RowContainer flag={true} data={farmItems?.filter((n) => n.category === 'fruits')} />
+        <RowContainer />
       </section>
     </div>
   );
