@@ -14,7 +14,7 @@ const App = () => {
     await getAllFarmItems().then(data => {
       dispatch({
         type : actionType.SET_FARM_ITEMS,
-        foodItems : data
+        farmItems : data
       });
     });
   };

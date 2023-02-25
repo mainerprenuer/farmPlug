@@ -5,9 +5,9 @@ import { motion } from 'framer-motion'
 const RowContainer = ({ flag, data }) => {
   console.log(data);
   return (
-    <div className={`w-full my-12 ${ flag ? "overflow-x-scroll" : "overflow-x-hidden" }`}>
+    <div className={`w-full flex items-center gap-3 my-12 ${ flag ? "overflow-x-scroll scrollbar-none" : "overflow-x-hidden flex-wrap" }`}>
       {data && data.map((item) => (
-         <div key={item.id} className='w-300 md:w-340 h-auto bg-cardOverlay rounded-lg p-2 my-12 backdrop-blur-lg hover:drop-shadow-lg '>
+         <div key={item.id} className='w-300 min-w-[300px] md:w-340 md:min-w-[340px] h-auto bg-cardOverlay rounded-lg p-2 my-12 backdrop-blur-lg hover:drop-shadow-lg '>
          <div className='w-full flex items-center justify-between'>
            <motion.img whileHover={{scale : 1.2 }} 
              src="https://firebasestorage.googleapis.com/v0/b/farmplug-ng.appspot.com/o/Images%2F1676134417952-pngwing.com%20(4).png?alt=media&token=a065dcf6-de7c-4be6-a411-e867651ade70" alt='' className='w-40 -mt-8 drop-shadow-2xl' />
