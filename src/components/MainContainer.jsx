@@ -4,6 +4,7 @@ import RowContainer from './RowContainer';
 import { motion } from 'framer-motion';
 import { TiChevronLeft, TiChevronRight } from 'react-icons/ti';
 import { useStateValue} from '../context/StateProvider';
+import MenuContainer from './MenuContainer';
 
 const MainContainer = () => {
   const [{farmItems}, dispatch] = useStateValue();
@@ -38,6 +39,8 @@ const MainContainer = () => {
         scrollValue={scrollValue}
          flag={true} data={farmItems?.filter((n) => n.category === 'fruits')}/>
       </section>
+
+      <MenuContainer />
     </div>
   );
 };
