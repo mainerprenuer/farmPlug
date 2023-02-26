@@ -1,5 +1,5 @@
 import F1 from '../img/f1.png'
-import F9 from '../img/f9.png';
+import F8 from '../img/f8.png';
 import F10 from '../img/f10.png';
 import F2 from '../img/f2.png';
 
@@ -8,17 +8,17 @@ import F2 from '../img/f2.png';
 export const heroData = [
     {
         id : 1,
-        name : 'Fresh Strawberries',
+        name : 'Strawberries',
         desc : 'All sweet berries',
         price : '1,500',
         imageSrc : F1
     },    
     {
         id : 2,
-        name : 'Fresh Banana',
-        desc : 'Banana & Plantain',
+        name : 'Fresh Apple',
+        desc : 'Tart & sweet Apples',
         price : '1,000',
-        imageSrc : F9
+        imageSrc : F8
     },
     {
         id : 3, 
@@ -74,7 +74,7 @@ export const categories = [
     // },
     {
         id : 7,
-        name : "Dry Fruits & Nuts",
+        name : "Dried Fruits",
         urlParamName : "nuts",
     },
 ];
