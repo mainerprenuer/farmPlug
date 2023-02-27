@@ -2,10 +2,14 @@ import React, {useEffect, useState} from 'react'
 import {GiFruitBowl} from 'react-icons/gi'
 import {categories} from '../utils/data'
 import { motion } from 'framer-motion'
+import RowContainer from './RowContainer'
+import { useStateValue } from '../context/StateProvider'
 
 const MenuContainer = () => {
 
     const [filter, setFilter] = useState("Vegetables");
+
+    const [{farmItems}, dispatch] = useStateValue ();
 
   return (
     <section className='w-full my-6' id='menu'>
@@ -26,6 +30,10 @@ const MenuContainer = () => {
                     <p className={`text-sm ${filter === category.urlParamName ? 'text-white' : 'text-textColor'} group-hover:text-white`}>{category.name}</p> 
                 </motion.div>
                 ))}
+            </div>
+
+            <div className='w-full'>
+                <RowContainer flag={false} data={farmItems?.filter((n) => n.category === filter)}/>
             </div>
         </div>
     </section> 
