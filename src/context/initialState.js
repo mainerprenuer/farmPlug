@@ -5,4 +5,5 @@ const userInfo = fetchUser()
 export const initialState = {
     user: userInfo,
     farmItems: null,
+    cartShow: false,
 };

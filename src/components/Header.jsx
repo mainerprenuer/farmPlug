@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BsCart4 } from 'react-icons/bs';
 import { MdAdd, MdLogout}  from 'react-icons/md';
 import { motion } from 'framer-motion';
+// import CartContainer from './CartContainer';
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../firebase.config";
@@ -19,7 +20,7 @@ const Header = () => {
     const firebaseAuth = getAuth(app);
     const provider = new GoogleAuthProvider();
 
-    const [{user}, dispatch] = useStateValue();
+    const [{user, cartShow}, dispatch] = useStateValue();
 
     const [isMenu, setIsMenu] = useState(false);
 
@@ -44,7 +45,13 @@ const Header = () => {
             type: actionType.SET_USER,
             user: null,
         });
-    };
+    };  
+
+    const showCart = () => {
+        dispatch({ type: actionType.SET_CART_SHOW,
+                   cartShow: !cartShow, 
+                });
+    }; 
 
   return (
     <header className='fixed z-50 w-screen p-3 px-4 md:p-3 md:px-16 bg-primary'>
@@ -75,7 +82,7 @@ const Header = () => {
                </li>
           </motion.ul>
 
-        <div className='relative flex items-center justify-center'>
+        <div className='relative flex items-center justify-center' onClick={showCart}>
         <BsCart4 className='text-textColor text-2x1 cursor-pointer' />
         <div className='absolute -top-2 -right-2 w-4 h-4 rounded-full bg-cartNumBg flex items-center justify-center'>
             <p className='text-xs text-white font-semibold'>3</p>
@@ -121,7 +128,7 @@ const Header = () => {
     {/* MOBILE */}
     <div className='flex items-center justify-between md:hidden w-full h-full rounded-full'>
 
-        <div className='relative flex items-center justify-center'>
+        <div className='relative flex items-center justify-center' onClick={showCart}>
         <BsCart4 className='text-textColor text-2x1 cursor-pointer' />
         <div className='absolute -top-2 -right-2 w-4 h-4 rounded-full bg-cartNumBg flex items-center justify-center'>
             <p className='text-xs text-white font-semibold'>3</p>
