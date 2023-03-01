@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { TiChevronLeft, TiChevronRight } from 'react-icons/ti';
 import { useStateValue} from '../context/StateProvider';
 import MenuContainer from './MenuContainer';
+import CartContainer from './CartContainer';
 
 const MainContainer = () => {
   const [{farmItems}, dispatch] = useStateValue();
@@ -41,6 +42,8 @@ const MainContainer = () => {
       </section>
 
       <MenuContainer />
+
+      <CartContainer />
     </div>
   );
 };
