@@ -20,7 +20,7 @@ const Header = () => {
     const firebaseAuth = getAuth(app);
     const provider = new GoogleAuthProvider();
 
-    const [{user, cartShow}, dispatch] = useStateValue();
+    const [{user, cartShow }, dispatch] = useStateValue();
 
     const [isMenu, setIsMenu] = useState(false);
 
@@ -48,8 +48,9 @@ const Header = () => {
     };  
 
     const showCart = () => {
-        dispatch({ type: actionType.SET_CART_SHOW,
-                   cartShow: !cartShow, 
+        dispatch({ 
+            type: actionType.SET_CART_SHOW,
+            cartShow: !cartShow, 
                 });
     }; 
 

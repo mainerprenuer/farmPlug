@@ -14,16 +14,17 @@ const reducer = (state, action) => {
                 user: action.user,
             };
             
+            case actionType.SET_FARM_ITEMS :
+                return {
+                    ...state,
+                    farmItems: action.farmItems,
+                };
+
             case actionType.SET_CART_SHOW :
                 return {
                     ...state,
-                    farmItems: action.cartShow,
+                    cartShow: action.cartShow,
                 };
-                case actionType.SET_CART_SHOW :
-                    return {
-                        ...state,
-                        cartShow: action.cartShow,
-                    };
 
             default:
                 return state;
