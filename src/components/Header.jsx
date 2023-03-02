@@ -65,32 +65,39 @@ const Header = () => {
         </Link>
               
         <div className='flex items-center gap-8'>
-         <motion.ul initial={{opacity : 0, x : 200}}
-                    animate={{opacity : 1, x : 0}}
-                    exit={{opacity : 0, x : 200}} 
-               className="flex items-center gap-8">
-             <li className='text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
-                 Menu
-             </li>
-             <li className='text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
-                 About
-             </li>
-             <li className='text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
-                 Services
-              </li>
-              <li className='text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
-                  Home
-               </li>
+          <motion.ul
+            initial={{ opacity: 0, x: 200 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 200 }}
+            className="flex items-center gap-24 "
+          >
+            <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+              Home
+            </li>
+            <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+              Menu
+            </li>
+            <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+              About Us
+            </li>
+            <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+              Service
+            </li>
           </motion.ul>
-
-        <div className='relative flex items-center justify-center' onClick={showCart}>
-        <BsCart4 className='text-textColor text-2x1 cursor-pointer' />
-        {cartItems && cartItems.length > 0 && (
-            <div className='absolute -top-2 -right-2 w-4 h-4 rounded-full bg-cartNumBg flex items-center justify-center'>
-            <p className='text-xs text-white font-semibold'>{cartItems.length}</p>
+          
+        <div
+            className="relative flex items-center justify-center"
+            onClick={showCart}
+          >
+            <BsCart4 className="text-textColor text-2xl  cursor-pointer" />
+            {cartItems && cartItems.length > 0 && (
+              <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
+                <p className="text-xs text-white font-semibold">
+                  {cartItems.length}
+                </p>
+              </div>
+            )}
           </div>
-        )};
-        </div>
 
         <div className="relative">
           <motion.img 
@@ -131,14 +138,27 @@ const Header = () => {
     {/* MOBILE */}
     <div className='flex items-center justify-between md:hidden w-full h-full rounded-full'>
 
-        <div className='relative flex items-center justify-center' onClick={showCart}>
+        {/* <div className='relative flex items-center justify-center' onClick={showCart}>
         <BsCart4 className='text-textColor text-2x1 cursor-pointer' />
         {cartItems && cartItems.length > 0 && (
             <div className='absolute -top-2 -right-2 w-4 h-4 rounded-full bg-cartNumBg flex items-center justify-center'>
             <p className='text-xs text-white font-semibold'>{cartItems.length}</p>
           </div>
         )};
-        </div>
+        </div> */}
+        <div
+            className="relative flex items-center justify-center"
+            onClick={showCart}
+          >
+            <BsCart4 className="text-textColor text-2xl  cursor-pointer" />
+            {cartItems && cartItems.length > 0 && (
+              <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
+                <p className="text-xs text-white font-semibold">
+                  {cartItems.length}
+                </p>
+              </div>
+            )}
+          </div>
 
         <Link to={"/"} className='flex items-center gap-2'>
             <img src={Logo} className="w-10 object-cover rounded-full" alt="logo" />

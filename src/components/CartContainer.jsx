@@ -9,7 +9,7 @@ import { useStateValue } from '../context/StateProvider';
 
 const CartContainer = () => {
 
-    const [{ cartShow }, dispatch] = useStateValue();
+    const [{ cartShow, cartItems }, dispatch] = useStateValue();
     
     const showCart = () => {
         dispatch({
@@ -39,13 +39,14 @@ const CartContainer = () => {
         {/* cart items section */}
          <div className='w-full h-340 md:h-42 px-6 flex flex-col gap-3 overflow-y-scroll scrollbar-none'>
             {/* cart item */}
-            <div className='w-full p-1 px-2 rounded-lg bg-cartItem flex items-center gap-2'>
+            {cartItems && cartItems.map(item => (
+                <div key={item.id} className='w-full p-1 px-2 rounded-lg bg-cartItem flex items-center gap-2'>
                 <img src='https://firebasestorage.googleapis.com/v0/b/farmplug-ng.appspot.com/o/Images%2F1677514694877-tumeric-removebg-preview.png?alt=media&token=f26f0682-43ce-4628-93e7-4e1fada852a1' className='w-20 h-20 max-w-[60px] rounded-full object-contain' alt='' />
  
                 {/* name section */}
                 <div className='flex flex-col gap-2'>
-                    <p className='text-base text-gray-50'>Tomato</p>
-                    <p className='text-sm block text-gray-300 font-semibold'>N500</p>
+                    <p className='text-base text-gray-50'>{item?.title}</p>
+                    <p className='text-sm block text-gray-300 font-semibold'>{item?.price}</p>
                 </div>
 
                 {/* button section */}
@@ -61,6 +62,7 @@ const CartContainer = () => {
                     </motion.div>
                 </div>
             </div>
+            ))}
            </div>
              {/* cart total section */}
              <div className='w-full flex-1 bg-cartTotal rounded-t-[2rem] flex flex-col items-center justify-evenly px-8 py-2'>
