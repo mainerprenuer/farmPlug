@@ -15,7 +15,7 @@ export const heroData = [
     },    
     {
         id : 2,
-        name : 'Fresh Apple',
+        name : 'Fresh Cherry',
         desc : 'Tart & sweet Apples',
         price : '1,000',
         imageSrc : F8
@@ -33,6 +33,7 @@ export const heroData = [
         price : '500', 
         imageSrc : F2
     },
+    
 ];
 
 
