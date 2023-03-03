@@ -84,7 +84,7 @@ const Header = () => {
               Service
             </li>
           </motion.ul>
-          
+
         <div
             className="relative flex items-center justify-center"
             onClick={showCart}
@@ -137,15 +137,6 @@ const Header = () => {
 
     {/* MOBILE */}
     <div className='flex items-center justify-between md:hidden w-full h-full rounded-full'>
-
-        {/* <div className='relative flex items-center justify-center' onClick={showCart}>
-        <BsCart4 className='text-textColor text-2x1 cursor-pointer' />
-        {cartItems && cartItems.length > 0 && (
-            <div className='absolute -top-2 -right-2 w-4 h-4 rounded-full bg-cartNumBg flex items-center justify-center'>
-            <p className='text-xs text-white font-semibold'>{cartItems.length}</p>
-          </div>
-        )};
-        </div> */}
         <div
             className="relative flex items-center justify-center"
             onClick={showCart}

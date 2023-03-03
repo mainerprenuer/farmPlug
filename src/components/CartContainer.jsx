@@ -2,14 +2,15 @@ import React from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md'
 import { motion } from 'framer-motion'
 import { RiRefreshFill } from 'react-icons/ri'
-import {BiMinus, BiPlus} from 'react-icons/bi'
 import { actionType } from '../context/reducer'
 import { useStateValue } from '../context/StateProvider';
+import EmptyCart from '../img/emptyCart.svg';
+import CartItem from './CartItem';
 
 
 const CartContainer = () => {
 
-    const [{ cartShow, cartItems }, dispatch] = useStateValue();
+    const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
     
     const showCart = () => {
         dispatch({
@@ -35,33 +36,13 @@ const CartContainer = () => {
     </div>
 
     {/* bottom section */}
+    {cartItems && cartItems.length > 0 ? (
       <div className='w-full h-full bg-cartBg rounded-t-[2rem] flex flex-col'>
         {/* cart items section */}
          <div className='w-full h-340 md:h-42 px-6 flex flex-col gap-3 overflow-y-scroll scrollbar-none'>
             {/* cart item */}
             {cartItems && cartItems.map(item => (
-                <div key={item.id} className='w-full p-1 px-2 rounded-lg bg-cartItem flex items-center gap-2'>
-                <img src='https://firebasestorage.googleapis.com/v0/b/farmplug-ng.appspot.com/o/Images%2F1677514694877-tumeric-removebg-preview.png?alt=media&token=f26f0682-43ce-4628-93e7-4e1fada852a1' className='w-20 h-20 max-w-[60px] rounded-full object-contain' alt='' />
- 
-                {/* name section */}
-                <div className='flex flex-col gap-2'>
-                    <p className='text-base text-gray-50'>{item?.title}</p>
-                    <p className='text-sm block text-gray-300 font-semibold'>{item?.price}</p>
-                </div>
-
-                {/* button section */}
-                <div className='group flex items-center gap-2 ml-auto cursor-pointer'>
-                    <motion.div whileTap={{ scale : 0.75 }}>
-                     <BiMinus className='text-gray-50' />
-                    </motion.div>
-
-                    <p className='w-5 h-5 rounded-sm bg-cartBg text-gray-50 flex items-center justify-center'>1</p>
-                    
-                    <motion.div whileTap={{ scale : 0.75 }}>
-                     <BiPlus className='text-gray-50' />
-                    </motion.div>
-                </div>
-            </div>
+                <CartItem  key={item.id} item={item} />
             ))}
            </div>
              {/* cart total section */}
@@ -83,14 +64,31 @@ const CartContainer = () => {
                 <p className='text-gray-400 text-lg'>N700</p>
                 </div>
 
-                <motion.button
-                 whileTap={{ scale : 0.8 }} 
-                 type="button" 
-                 className='w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg' >
-                    Check Out
-                </motion.button>
+                {user ? (
+                    <motion.button
+                    whileTap={{ scale : 0.8 }} 
+                    type="button" 
+                    className='w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg' >
+                       Check Out
+                   </motion.button>
+                ) : (
+                    <motion.button
+                    whileTap={{ scale : 0.8 }} 
+                    type="button" 
+                    className='w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg' >
+                       Login to check out
+                   </motion.button>
+                )}
             </div>
       </div>
+      ) : (
+        <div className='w-full h-full flex flex-col items-center justify-center gap-6'>
+            <img src={EmptyCart} className="w-300" alt="" />
+            <p className='text-xl text-textColor font-semibold'>
+                Add some items to your cart
+            </p>
+        </div>
+      )}
     </motion.div>
   );
 };

@@ -68,11 +68,11 @@ export const categories = [
         name : "Pulses",
         urlParamName : "pulses",
     },
-    // {
-    //     id : 7,
-    //     name : "Honey",
-    //     urlParamName : "honey",
-    // },
+    {
+        id : 7,
+        name : "Tubers",
+        urlParamName : "tubers",
+    },
     {
         id : 7,
         name : "Dried Fruits",
