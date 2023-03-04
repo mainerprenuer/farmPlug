@@ -10,27 +10,27 @@ export const heroData = [
         id : 1,
         name : 'Strawberries',
         desc : 'All sweet berries',
-        price : '₦ 1500',
+        price : '1500',
         imageSrc : F1
     },    
     {
         id : 2,
         name : 'Fresh Cherry',
         desc : 'Tart & sweet Cherries',
-        price : '₦ 1000',
+        price : '1000',
         imageSrc : F8
     },
     {
         id : 3, 
         name : 'Watermelon', 
         desc : 'Sweet watermelon', 
-        price : '₦ 800', imageSrc : F10
+        price : '800', imageSrc : F10
     },
     {
         id : 4, 
         name : 'Pineapple', 
         desc : 'Delicious Pineapple', 
-        price : '₦ 500', 
+        price : '500', 
         imageSrc : F2
     },
     
